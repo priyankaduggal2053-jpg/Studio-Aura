@@ -1,59 +1,61 @@
-import { Sparkles, Instagram, MessageCircle, Heart } from 'lucide-react';
-import { waLink, WA_MESSAGES, INSTAGRAM_URL } from '@/lib/contact';
+import { Link } from "@tanstack/react-router";
+
+import { Button } from "@/components/ui/button";
+import { INSTAGRAM_HANDLE, INSTAGRAM_URL, WA_FREE_SAMPLE, WHATSAPP_DISPLAY } from "@/lib/site";
+import { InstagramIcon, WhatsAppIcon } from "./icons";
 
 export function Footer() {
   return (
-    <footer className="border-t border-white/10 py-14">
-      <div className="mx-auto max-w-7xl px-5 sm:px-8">
-        <div className="flex flex-col items-center gap-8 text-center">
-          <a href="#top" className="flex items-center gap-2.5">
-            <span className="flex h-9 w-9 items-center justify-center rounded-full border border-gold/50 bg-gold/10">
-              <Sparkles className="h-4 w-4 text-gold" />
-            </span>
-            <span className="font-display text-2xl font-semibold text-ivory">
-              Studio <span className="italic text-gradient-gold">Aura</span>
-            </span>
-          </a>
-
-          <p className="max-w-sm text-sm leading-relaxed text-ivory/50">
-            Websites that turn local visitors into loyal regulars — for cafes, restaurants, salons
-            and boutique brands across New Delhi.
+    <footer className="grain relative overflow-hidden px-5 pb-28 pt-24 sm:px-8 sm:pb-16">
+      <div className="glow-orb pointer-events-none absolute left-1/2 top-0 h-80 w-[40rem] -translate-x-1/2" />
+      <div className="relative mx-auto max-w-6xl">
+        <div className="text-center">
+          <p className="eyebrow text-gold">Ready when you are</p>
+          <h2 className="mx-auto mt-5 max-w-3xl text-5xl leading-[1.02] sm:text-6xl md:text-7xl">
+            Let's build your <em className="text-gold-gradient">free sample</em> today
+          </h2>
+          <p className="mx-auto mt-6 max-w-lg text-muted-foreground">
+            Message us your café, restaurant or salon name. You'll see a live preview before paying a rupee.
           </p>
-
-          <nav className="flex flex-wrap items-center justify-center gap-x-8 gap-y-3 text-[12px] font-medium uppercase tracking-[0.18em] text-ivory/60">
-            <a href="#work" className="transition-colors hover:text-gold">Work</a>
-            <a href="#packages" className="transition-colors hover:text-gold">Packages</a>
-            <a href="#why-us" className="transition-colors hover:text-gold">Why Us</a>
-            <a href="#book" className="transition-colors hover:text-gold">Book Free Preview</a>
-          </nav>
-
-          <div className="flex items-center gap-4">
-            <a
-              href={waLink(WA_MESSAGES.sample)}
-              target="_blank"
-              rel="noreferrer"
-              aria-label="WhatsApp"
-              className="flex h-11 w-11 items-center justify-center rounded-full border border-white/15 text-ivory/70 transition-all duration-300 hover:border-gold hover:text-gold"
-            >
-              <MessageCircle className="h-5 w-5" />
-            </a>
+          <div className="mt-10 flex flex-col justify-center gap-3 sm:flex-row">
+            <Button asChild variant="whatsapp" size="xl">
+              <a href={WA_FREE_SAMPLE} target="_blank" rel="noreferrer">
+                <WhatsAppIcon /> Chat on WhatsApp
+              </a>
+            </Button>
+            <Button asChild variant="editorial" size="xl">
+              <a href={INSTAGRAM_URL} target="_blank" rel="noreferrer">
+                <InstagramIcon /> Follow on Instagram
+              </a>
+            </Button>
+          </div>
+          <p className="mt-5 text-sm text-muted-foreground">
+            {WHATSAPP_DISPLAY} ·{" "}
             <a
               href={INSTAGRAM_URL}
               target="_blank"
               rel="noreferrer"
-              aria-label="Instagram"
-              className="flex h-11 w-11 items-center justify-center rounded-full border border-white/15 text-ivory/70 transition-all duration-300 hover:border-rose hover:text-rose"
+              className="text-gold underline-offset-4 hover:underline"
             >
-              <Instagram className="h-5 w-5" />
+              {INSTAGRAM_HANDLE}
             </a>
-          </div>
+          </p>
         </div>
 
-        <div className="mt-10 flex flex-col items-center gap-3 border-t border-white/5 pt-8 text-center sm:flex-row sm:justify-between sm:text-left">
-          <p className="text-xs text-ivory/40">© {new Date().getFullYear()} Studio Aura · New Delhi, India</p>
-          <p className="flex items-center gap-1.5 text-xs text-ivory/50">
-            Crafted with care by <span className="font-semibold text-gold">Priyanka Duggal</span>
-            <Heart className="h-3 w-3 fill-rose text-rose" />
+        <div className="hairline mt-20" />
+
+        <div className="mt-8 flex flex-col items-center justify-between gap-6 text-sm text-muted-foreground md:flex-row">
+          <Link to="/" className="flex items-baseline gap-1.5 text-foreground">
+            <span className="font-display text-2xl italic">Studio</span>
+            <span className="font-display text-2xl text-gold-gradient">Aura</span>
+          </Link>
+          <nav className="flex gap-6">
+            <Link to="/work" className="hover:text-gold">Work</Link>
+            <Link to="/packages" className="hover:text-gold">Packages</Link>
+            <Link to="/why-us" className="hover:text-gold">Why Us</Link>
+          </nav>
+          <p className="font-display text-lg italic text-foreground/80">
+            Crafted with care by Priyanka Duggal · New Delhi
           </p>
         </div>
       </div>
