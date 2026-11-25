@@ -4,8 +4,8 @@ import nobbysWebsite from "@/assets/nobbys-website.png.asset.json";
 
 export const WHATSAPP_NUMBER = "917289819755";
 export const WHATSAPP_DISPLAY = "+91 72898 19755";
-export const INSTAGRAM_HANDLE = "@studioaura.web";
-export const INSTAGRAM_URL = "https://www.instagram.com/studioaura.web/";
+export const INSTAGRAM_HANDLE = "stud.ioauraweb";
+export const INSTAGRAM_URL = "https://www.instagram.com/stud.ioauraweb?fqnt=YmF2b2RrZWJrNDcx&utm_-source=qr";
 
 export function whatsappLink(message: string) {
   return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
